@@ -1,7 +1,8 @@
 import 'reflect-metadata';
 
 import express, { Request, Response, NextFunction } from 'express';
-import 'express-async-errors'; // Pacote instalado para pegar os errors das rotas assincronas.
+import cors from 'cors';
+import 'express-async-errors'; // Pacote instalado para obter os errors em rotas assincronas.
 
 import routes from './routes';
 import uploadConfig from './config/upload';
@@ -12,6 +13,7 @@ import './database';
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use('/files', express.static(uploadConfig.directory));
 app.use(routes);
