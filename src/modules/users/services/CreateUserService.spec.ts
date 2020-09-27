@@ -19,7 +19,7 @@ describe('CreateUser', () => {
       password: '123456',
     });
 
-    expect(user).toHaveProperty('id');
+    await expect(user).toHaveProperty('id');
   });
 
   it('Should not be able to create an user with email already exist', async () => {
@@ -36,7 +36,7 @@ describe('CreateUser', () => {
       password: '123456',
     });
 
-    expect(
+    await expect(
       createUserService.execute({
         name: 'Fabricio Silva',
         email: 'fabricio.roddrigo@gmail.com',

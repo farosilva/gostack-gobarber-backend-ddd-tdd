@@ -29,8 +29,8 @@ describe('AuthenticateUser', () => {
       password: '123456',
     });
 
-    expect(response).toHaveProperty('token');
-    expect(response.user).toEqual(user);
+    await expect(response).toHaveProperty('token');
+    await expect(response.user).toEqual(user);
   });
 
   it('Should not be able to authenticate with non exist user', async () => {
@@ -42,7 +42,7 @@ describe('AuthenticateUser', () => {
       fakeHashProvider,
     );
 
-    expect(
+    await expect(
       authenticateUser.execute({
         email: 'fabricio.roddrig@gmail.com',
         password: '123456',
@@ -69,7 +69,7 @@ describe('AuthenticateUser', () => {
       password: '123456',
     });
 
-    expect(
+    await expect(
       authenticateUser.execute({
         email: 'fabricio.roddrigo@gmail.com',
         password: 'wrong-password',

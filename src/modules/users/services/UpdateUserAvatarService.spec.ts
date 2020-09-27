@@ -25,7 +25,7 @@ describe('UpdateUserAvatar', () => {
       avatarFilename: 'avatar.jpg',
     });
 
-    expect(user.avatar).toBe('avatar.jpg');
+    await expect(user.avatar).toBe('avatar.jpg');
   });
 
   it('should be able to delete the old avatar when update a new one', async () => {
@@ -55,7 +55,7 @@ describe('UpdateUserAvatar', () => {
       avatarFilename: 'avatar2.jpg',
     });
 
-    expect(deleteFile).toBeCalledWith('avatar.jpg');
+    await expect(deleteFile).toBeCalledWith('avatar.jpg');
   });
 
   it('should not be able to change the avatar if non exist an user', async () => {
@@ -67,7 +67,7 @@ describe('UpdateUserAvatar', () => {
       fakerStorageProvider,
     );
 
-    expect(
+    await expect(
       updateUserAvatar.execute({
         user_id: 'non-users-exist',
         avatarFilename: 'avatar.jpg',
