@@ -7,3 +7,8 @@ container.registerSingleton<IStorageProvider>(
   'StorageProvider',
   DiskStorageProvider,
 );
+
+container.registerSingleton<IStorageProvider>(
+  'StorageProvider',
+  DiskStorageProvider,
+);
