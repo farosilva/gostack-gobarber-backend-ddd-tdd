@@ -9,12 +9,13 @@ import AppError from '@shared/errors/AppError';
 import routes from './routes';
 
 import '@shared/infra/typeorm';
+import '@shared/container';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/files', express.static(uploadConfig.directory));
+app.use('/files', express.static(uploadConfig.uploadsFolders));
 app.use(routes);
 
 // Middleware para tratativa de erros
